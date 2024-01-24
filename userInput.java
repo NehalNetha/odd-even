@@ -55,5 +55,28 @@ public class userInput {
 
     }
 
+    int index = findIndexWithSmallestDistance(numbers);
+    System.out.println("Index with the smallest distance: " + index);
+
+
+    }
+    private int findIndexWithSmallestDistance(ArrayList<Integer> numbers) {
+        if (numbers.size() < 2) {
+            // Handle the case where there are fewer than 2 numbers
+            return -1;
+        }
+
+        int smallestDistance = Integer.MAX_VALUE;
+        int indexWithSmallestDistance = -1;
+
+        for (int i = 0; i < numbers.size() - 1; i++) {
+            int currentDistance = Math.abs(numbers.get(i) - numbers.get(i + 1));
+            if (currentDistance < smallestDistance) {
+                smallestDistance = currentDistance;
+                indexWithSmallestDistance = i;
+            }
+        }
+
+        return indexWithSmallestDistance;
     }
 }
